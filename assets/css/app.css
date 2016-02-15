@@ -1,0 +1,38 @@
+body {
+  padding-top: 70px;
+}
+
+.navbar-brand {
+  width: 128px;
+  text-align: right;
+}
+
+footer.navbar {
+  margin-bottom: 0px;
+}
+
+.jumbotron {
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+}
+
+.jumbotron h2 {
+  margin-top: 0px;
+  font-size: 2.4em;
+}
+
+.jumbotron p {
+  font-size: 1.6em;
+}
+
+
+@media (max-width: 767px) {
+  .jumbotron h2 {
+    font-size: 1.8em;
+  }
+  .jumbotron p {
+    font-size: 1em;
+  }
+
+}
