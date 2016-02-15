@@ -9,6 +9,7 @@
     <title>Etsy Api Test</title>
     <link rel="stylesheet" href="lib/bootstrap-css-only/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/app.css">
+    <base href="http://localhost:3000/" />
 </head>
 <body ng-controller="appCtrl">
     <nav class="navbar navbar-fixed-top navbar-inverse">
@@ -42,24 +43,27 @@
         </div><!--/.sidebar-->
 
         <div class="col-xs-12 col-sm-9">
-          <form class="form-horizontal">
+          <form class="form-horizontal" action="" method="get">
             <div class="form-group">
               <label for="inputSearch" class="col-sm-1">Search</label>
               <div class="col-sm-2">
-                <input type="text" id="inputSearch" class="form-control" placeholder="Search" ng-model="tags">
+                <input type="text" id="tags" name="tags" class="form-control" placeholder="Keywords" ng-model="tags">                
+              </div>
+              <div class="col-sm-2">
+              	<button type="submit" class="btn btn-info">Filter</button>
               </div>
             </div>
 
           </form>
-          <div class="panel panel-default" data-ng-repeat="(idx, item) in items|filter: tags">
+          <div class="panel panel-default" data-ng-repeat="(idx, item) in items">
           	<div class="panel-heading">
         		<strong>{{item.title}}</strong>
           	</div>
           	<div class="panel-img">
-          		<a ng-href="{{item.url}}"><img ng-src="{{item.Images[0].url_170x135}}"></a>
+          		<a ng-href="{{item.url}}" target="_blank"><img ng-src="{{item.Images[0].url_170x135}}"></a>
           	</div>
           	<div class="panel-body text-right">
-          		<a ng-href="{{item.url}}">
+          		<a ng-href="{{item.url}}" target="_blank">
           			{{item.price|currency}}
           			<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
           		</a>
