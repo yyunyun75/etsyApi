@@ -9,5 +9,9 @@
   "ignore": [
     "**/.*",
     "node_modules"
-  ]
+  ],
+  "dependencies": {
+    "bootstrap-css-only": "^3.3.6",
+    "angular": "^1.5.0"
+  }
 }
