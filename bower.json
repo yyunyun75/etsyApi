@@ -1,0 +1,13 @@
+{
+  "name": "etsyApi",
+  "version": "0.0.1",
+  "homepage": "https://github.com/yyunyun75/etsyApi",
+  "authors": [
+    "Leslie Lee <yyunyun75@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules"
+  ]
+}
