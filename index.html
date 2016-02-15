@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-ng-app="apiApp">
+<html lang="en" ng-app="apiApp">
 <head>
     <!--META-->
     <meta charset="utf-8">
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="lib/bootstrap-css-only/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/app.css">
 </head>
-<body data-ng-controller="appCtrl">
+<body ng-controller="appCtrl">
     <nav class="navbar navbar-fixed-top navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -36,11 +36,8 @@
 
         <div class="col-sm-3 hidden-xs" id="sidebar">
           <div class="list-group">
-            <a href="#" class="list-group-item active">Cras justo odio</a>
-            <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-            <a href="#" class="list-group-item">Morbi leo risus</a>
-            <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-            <a href="#" class="list-group-item">Vestibulum at eros</a>
+            <a href="#" class="list-group-item active">Available Items</a>
+            <a href="#" class="list-group-item"></a>
           </div>
         </div><!--/.sidebar-->
 
@@ -49,33 +46,31 @@
             <div class="form-group">
               <label for="inputSearch" class="col-sm-1">Search</label>
               <div class="col-sm-2">
-                <input type="text" id="inputSearch" class="form-control" placeholder="Search by item name" ng-model="keyword">
+                <input type="text" id="inputSearch" class="form-control" placeholder="Search" ng-model="tags">
               </div>
             </div>
 
           </form>
-          <div class="jumbotron">
-            <div class="row">
-            <div class="col-sm-8 col-xs-7">
-              <h2>name</h2>
-              <p>description</p>
-            </div>
-            <div class="col-sm-2 text-center col-xs-3">
-              <a class="btn btn-primary btn-lg" href="#" role="button">price</a>
-            </div> 
-            <div class="col-sm-2 col-xs-1 text-center">
-
-            </div> 
-            </div>            
+          <div class="panel panel-default" data-ng-repeat="(idx, item) in items|filter: tags">
+          	<div class="panel-heading">
+        		<strong>{{item.title}}</strong>
+          	</div>
+          	<div class="panel-img">
+          		<a ng-href="{{item.url}}"><img ng-src="{{item.Images[0].url_170x135}}"></a>
+          	</div>
+          	<div class="panel-body text-right">
+          		<a ng-href="{{item.url}}">
+          			{{item.price|currency}}
+          			<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+          		</a>
+          	</div>         
           </div>
-        </div><!--/.col-xs-12.col-sm-9-->
-
-      </div><!--/row-->
-
+        </div>
+      </div>
       <hr>
 
 </div><!--/.container-->
-<footer class="navbar-inverse navbar navbar-static-top">
+<footer class="navbar-inverse navbar navbar-fixed-bottom">
 
 </footer>
 
